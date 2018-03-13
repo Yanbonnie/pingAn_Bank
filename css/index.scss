@@ -37,6 +37,7 @@ body{
         margin: 0 auto;
     }
     .list-block .item-title.label{
+        font-size: 0.7rem;
         b{
             color: #ff503f;
             margin-right: 10px;
@@ -45,10 +46,15 @@ body{
     .formBox{
         .tip{
             text-align: center;
+            font-size: 0.7rem;
+        }
+        input{
+            font-size: 0.7rem;
+            text-align: right;
         }
     }
     .button-danger{
-        width: 200px;
+        width: 180px;
         margin: REM(30) auto;
         line-height: REM(50);
         height: REM(50);
@@ -58,5 +64,13 @@ body{
         width: REM(250);
         margin: 0 auto;
         display: block;
+    }
+    .swiper-container-horizontal>.swiper-pagination{
+        bottom:0;
+        line-height: 20px;
+        height: 20px;
+    }
+    .swiper-pagination-bullet-active{
+        background-color: #e75905;
     }
 }
