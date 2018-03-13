@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TEST</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/sm.min.css">
+    <link rel="stylesheet" href="css/sm-extend.min.css">
+
+</head>
+<body>
+    <div class="content" id="index-box"  v-cloak>
+        <!-- Slider -->
+        <div class="swiper-container" data-space-between='10'>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/banner.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/banner2.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/banner.jpg" alt=""></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="formBox">
+            <p class="tip">留下联系方式，上门办卡</p>
+            <div class="list-block">
+                <ul>
+                    <!-- Text inputs -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label"><b>*</b>姓名</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="请输入姓名">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-email"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label"><b>*</b>手机号：</div>
+                                <div class="item-input">
+                                    <input type="email" placeholder="请输入正确的手机号">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-email"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label"><b>*</b>单位名称：</div>
+                                <div class="item-input">
+                                    <input type="email" placeholder="非在职人员不受理">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-email"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label"><b>*</b>单位地址：</div>
+                                <div class="item-input">
+                                    <input type="text" id='city-picker' placeholder="请选择省市区"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <a href="#" class="button button-fill button-danger">一键预约/提交</a>
+            <img class="logo" src="images/logo.jpg" alt="">
+        </div>
+    </div>
+
+    <script src="js/zepto.min.js"></script>
+    <script src="js/sm.min.js"></script>
+    <script src="js/sm-city-picker.min.js"></script>
+    <script src="js/sm-extend.min.js"></script>
+
+    <script type="text/javascript">
+        var basep = "images/", //图片目录
+            preLoadSource = [ //背景资源
+            basep + "banner.jpg",
+            ];
+    </script>
+    <!--<script src="js/loading.js"></script>-->
+    <script src="js/vue.min.js"></script>
+    <script>
+        //加载资源数组必须在loading之前进行配置
+        $(function () {
+            var code = 'adasfasfasfasdf';
+            var type = 2;
+            new Vue({
+                el: "#index-box",
+                data: {
+                },
+                methods: {
+
+                },
+                mounted: function () {
+                    window.tab1 = new mo.PageSlide({
+                        target: $('#slide01 .content li'),
+                        autoPlay:true,
+                        direction:'x',
+                        loop:true,
+                        // animateTime: 3000,
+                        controller: true
+                    });
+                    $(".swiper-container").swiper({
+                        uniqueNavElements: true
+                    });
+                    $("#city-picker").cityPicker({
+                        toolbarTemplate: '<header class="bar bar-nav">\
+                        <button class="button button-link pull-right close-picker">确定</button>\
+                        <h1 class="title">选择收货地址</h1>\
+                        </header>'
+                    });
+                }
+            })
+        })
+    //    http://sui.taobao.org/sui/docs/ http://m.sui.taobao.org/
+    </script>
+
+</body>
+
+</html>
