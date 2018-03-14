@@ -1,5 +1,4 @@
 @import "_base.scss";
-@import "_loading_22.scss";
 $orange:#f49f4f;
 .wrap{
     //visibility: hidden;
@@ -59,6 +58,9 @@ body{
         line-height: REM(50);
         height: REM(50);
         background: #e75905;
+        &.gray{
+            background: #dedede;
+        }
     }
     .logo{
         width: REM(250);
