@@ -14,7 +14,7 @@
         <!-- Slider -->
         <div class="swiper-container" data-space-between='10' style="height: 200px;">
             <div class="swiper-wrapper" id="swiper-wrapper">
-                <div class="swiper-slide" @click="goDetail(item)" v-for="(item,index) in bannerList" :id="'itemSlide'+index"><img :src="item.pic" alt=""></div>
+                <div class="swiper-slide" @click="goDetail(item)" v-for="(item,index) in bannerList"><img :src="item.pic" alt=""></div>
                 <!--<div class="swiper-slide"><img src="images/banner2.jpg" alt=""></div>--> 
                 <!--<div class="swiper-slide"><img src="images/banner.jpg" alt=""></div>-->
             </div>
@@ -199,7 +199,6 @@
                             dataType:'json',
                             success:function(res){
                                 if(res.status == 0 ){
-                                    console.log(res);
                                     This.bannerList = res.data;
                                     if(This.bannerList.length == 1){
                                         $(".swiper-container").swiper();
