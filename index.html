@@ -13,9 +13,9 @@
     <div class="content" id="index-box"  v-cloak>
         <!-- Slider -->
         <div class="swiper-container" data-space-between='10'>
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" @click="goDetail(item)" v-for="(item,index) in bannerList"><img :src="item.pic" alt=""></div>
-                <!--<div class="swiper-slide"><img src="images/banner2.jpg" alt=""></div>-->
+            <div class="swiper-wrapper" id="swiper-wrapper">
+                <div class="swiper-slide" @click="goDetail(item)" v-for="(item,index) in bannerList" :id="'itemSlide'+index"><img :src="item.pic" alt=""></div>
+                <!--<div class="swiper-slide"><img src="images/banner2.jpg" alt=""></div>--> 
                 <!--<div class="swiper-slide"><img src="images/banner.jpg" alt=""></div>-->
             </div>
             <div class="swiper-pagination"></div>
@@ -202,11 +202,19 @@
                                     console.log(res);
                                     This.bannerList = res.data;
                                     if(This.bannerList.length == 1){
-                                        $(".swiper-container").swiper();
+                                        setTimeout(function(){
+                                            var H = $('#itemSlide0').find('img').height();
+                                            $('#swiper-wrapper').css({'height':H+'px','overflow':'hidden'})
+                                            $(".swiper-container").swiper();
+                                        },600)
                                     }else{
-                                        $(".swiper-container").swiper({
-                                            pagination: ".swiper-pagination"
-                                        });
+                                        setTimeout(function(){
+                                            var H = $('#itemSlide0').find('img').height();
+                                            $('#swiper-wrapper').css({'height':H+'px','overflow':'hidden'})
+                                            $(".swiper-container").swiper({
+                                                pagination: ".swiper-pagination"
+                                            });
+                                        },600)
                                     }
                                 }
                             }
