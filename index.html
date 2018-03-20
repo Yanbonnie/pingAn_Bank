@@ -64,7 +64,8 @@
                             <div class="item-inner">
                                 <div class="item-title label"><b>*</b>单位地址：</div>
                                 <div class="item-input">
-                                    <input type="text" id='city-picker' placeholder="请选择省市区" />
+                                    <input type="text" id='city-picker' placeholder="请选择省市区" value="浙江 杭州 拱墅区" style="opacity: 0 ; position: absolute;" /> 
+                                    <input type="text" id="areaSelect" placeholder="请选择省市区"/> 
                                 </div>
                             </div>
                         </div>
@@ -237,6 +238,7 @@
                     
                     $("body").on('click','.close-picker',function(){
                         This.detailState = true;
+                        $('#areaSelect').val($('#city-picker').val())
                     })
                 }
             })
