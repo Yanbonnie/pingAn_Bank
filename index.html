@@ -69,7 +69,7 @@
                             </div>
                         </div>
                     </li>
-                    <li>
+                    <li v-show="detailState">
                         <div class="item-content">
                             <div class="item-media"><i class="icon icon-form-email"></i></div>
                             <div class="item-inner">
@@ -102,6 +102,7 @@
                     address:'',
                     area:null,
                     submitStatus:true,
+                    detailState:false,
                     bannerList:[],
                     bannerLink:'https://xnt.xhwxpos.com/pingan/index.php/weixin/index/ajax_get_banner.html',
                     postLink:'https://xnt.xhwxpos.com/pingan/index.php/weixin/index/ajax_post_data.html'
@@ -224,13 +225,19 @@
                     }
                 },
                 mounted: function () {
+                    var This = this;
                     $("#city-picker").cityPicker({
                         toolbarTemplate: '<header class="bar bar-nav">\
                         <button class="button button-link pull-right close-picker">确定</button>\
                         <h1 class="title">选择单位地址</h1>\
                         </header>'
                     });
+
                     this.getBanner();
+                    
+                    $("body").on('click','.close-picker',function(){
+                        This.detailState = true;
+                    })
                 }
             })
         })
